@@ -1,0 +1,52 @@
+# Ignore Visual Studio and Rider settings
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore build and output directories
+bin/
+obj/
+out/
+
+# Ignore .NET and NuGet cache files
+project.lock.json
+project.assets.json
+*.nuget.props
+*.nuget.targets
+.nuget/
+
+# Ignore logs, database, and temp files
+logs/
+*.log
+*.tlog
+*.cache
+*.db
+*.mdf
+*.ldf
+
+# Ignore environment-specific configuration files
+appsettings*.json
+secrets.json
+
+# Ignore compiled and temporary files
+*.dll
+*.exe
+*.pdb
+*.so
+*.dylib
+*.lib
+*.a
+*.pyc
+*.pyo
+*.class
+*.tmp
+*.bak
+*.swp
+
+# Ignore Node.js dependencies (if applicable)
+node_modules/
+npm-debug.log
+yarn-error.log

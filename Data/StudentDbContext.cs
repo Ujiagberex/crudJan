@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebApiClass.DTO;
 using WebApiClass.Model;
 
 namespace WebApiClass.Data

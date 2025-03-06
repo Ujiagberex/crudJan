@@ -1,6 +1,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using WebApiClass.Data;
+using WebApiClass.DTO;
 using WebApiClass.IServices;
 using WebApiClass.Services;
 
@@ -18,6 +19,9 @@ namespace WebApiClass
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            
+            //Configuration of Automapper
+            builder.Services.AddAutoMapper(typeof(MappingProfile));
 
             //Database configuration
             string connectionString = builder.Configuration.GetConnectionString("Connection");
