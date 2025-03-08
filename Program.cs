@@ -26,13 +26,15 @@ namespace WebApiClass
             //Database configuration
             string connectionString = builder.Configuration.GetConnectionString("Connection");
             builder.Services.AddDbContext<StudentDbContext>(options =>
-            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+            options.UseNpgsql(connectionString));
+            //options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
             //Configure Services
             builder.Services.AddScoped<IStudent, StudentService>();
 
             var app = builder.Build();
 
+            // Enable Swagger for both Local and Production
             app.UseSwagger();
             app.UseSwaggerUI();
 
