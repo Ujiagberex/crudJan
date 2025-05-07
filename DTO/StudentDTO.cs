@@ -18,6 +18,7 @@ namespace WebApiClass.DTO
         public MappingProfile()
         {
             CreateMap<Student, StudentDTO>().ReverseMap();
+            CreateMap<ApplicationUser, RegisterDTO>().ReverseMap();
         }
     }
 }

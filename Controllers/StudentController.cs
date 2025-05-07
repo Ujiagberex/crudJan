@@ -1,4 +1,6 @@
 ﻿using System.Reflection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApiClass.DTO;
@@ -9,6 +11,7 @@ namespace WebApiClass.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
     public class StudentController : ControllerBase
     {
         private readonly IStudent studentService;
@@ -38,6 +41,7 @@ namespace WebApiClass.Controllers
             return Ok(students);
         }
 
+        [Authorize("Admin")]
         [HttpGet("GetStudentByName")]
         public IActionResult GetStudentWithName(string name)
         {

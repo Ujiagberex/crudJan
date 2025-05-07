@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using WebApiClass.DTO;
 using WebApiClass.Model;
 
 namespace WebApiClass.Data
 {
-    public class StudentDbContext : DbContext
+    public class StudentDbContext : IdentityDbContext<ApplicationUser>
     {
         public StudentDbContext(DbContextOptions<StudentDbContext> options) : base(options)
         {
