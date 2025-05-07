@@ -18,7 +18,7 @@ namespace WebApiClass
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            builder.WebHost.UseKestrel(options => options.ListenAnyIP(0)); // Listen on all IPs
             // Add services to the container.
 
             builder.Services.AddControllers();
@@ -60,8 +60,8 @@ namespace WebApiClass
             //Database configuration
             string connectionString = builder.Configuration.GetConnectionString("Connection");
             builder.Services.AddDbContext<StudentDbContext>(options =>
-            //options.UseNpgsql(connectionString));
-            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+            options.UseNpgsql(connectionString));
+            //options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
             //Configure Services
             builder.Services.AddScoped<IStudent, StudentService>();
